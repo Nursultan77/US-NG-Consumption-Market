@@ -48,17 +48,17 @@ Next, we can look at the change in total consumption with change in consumers qu
 
 As we can see, despite the increase number of residential consumers by 40%, te its total consumption did not change significantly. 
 
-## Script 3: 3_prices_diff_by_state.py
+### Script 3: 3_prices_diff_by_state.py
 
 Before we will get rid of the years and states fixed effects to check the more precise correlation between the consumption and prices, since we have weighted average end prices, we can examine the difference distribution between natural gas citygate and final prices. For this analysis I chose the year 2010 since as this is the last year contains tinformation of prices for the vast majority of prices. Later, we will visualize them on the GIS map. As we can see from the virst graph, since the distribution of the citygate prices is quite narrow, the end prices are distributed more wider. Average citygate price in 2010 was $ 6.64 per Mcf, average final price was $ 9.82 per Mcf.
 
 From the second picture we can see that Delaware, Florida, Arizona, Georgia and New York, Washington, Missouri and Mariland has the biggest difference between citygate and final prices and the price of natural gas in Hawaii varies from the rest of the country dramatically. Oil and Gas procution states Texas and Louisiana final prices are lower than their citygate price.
 
-## Script 4: 4_fixed_eff
+### Script 4: 4_fixed_eff and Stata regression
 
 This scrypt consolidates all previous data to final three dataframes of panel data according to consumers type to check the elasticities of the price. Then, save these dataframes to .csv files to import them in Stata. Note: My Mac with Big Sur operational system seem like has some issues of supporting some modules such as linearmodels, so I run this regressions in Stata. To do that, we need to open Stata. Click Import from toolbar and choose Text data, choose sequentially each saved csv file and run the regrression (check whether necessary variables have numeric values):
 
-## Script 5: 5_prices_geo
+### Script 5: 5_prices_geo
 
 The final script will be used top use the Data for mapping the average end prices on the map for each state, and represent the difference between consumers categories.
 

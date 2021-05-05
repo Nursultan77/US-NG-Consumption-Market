@@ -43,11 +43,19 @@ To see the reasons, I want to check whether the number of consumers changed sign
 
 This script is designed to visualize the end consumers price elasticity, and prepares the dataframe of the average weighted end price for the script #3 where we will compare the difference between the citygate and final consumers prices differences in every state of the country. Since the prices from the source website contains the prices in real $ dollars, we don't need to correct them by inflation rate. To get the weighted price, we need to have the consumption data, which could be read from the previous script. Next, iterate through the .xls files to get the necessary columns that contain price for each category of consumers. For the next lines after erasing unnecessary symbols from state columns, pandas can multiply, summarize and divide each cell of the dataframes according to the headings and the indexes. final_pr_df is the final dataframe that contain average weihted prices for each state and year. Doing similare procedure we get the av_pr and av_pr_long dataframes that contain average country's end prices.
 
-Firstly, we can see, that the prices general tendencies over the years for all categories were the same with pic in late 2000's and further decline. 
+Firstly, we can see, that the prices general tendencies over the years for all categories were the same with peak in late 2000's and further decline. 
+![](https://github.com/Nursultan77/US-NG-Consumption-Market/blob/main/ave_prices_bysector.png) 
 
 Next, we can look at the change in total consumption with change in consumers quantity.
 
 As we can see, despite the increase number of residential consumers by 40%, te its total consumption did not change significantly. 
+![](https://github.com/Nursultan77/US-NG-Consumption-Market/blob/main/res_number-consumption_pic.png) 
+
+We also can see proportional growth with some fluctuations  for commercial consumers quantity 
+![](https://github.com/Nursultan77/US-NG-Consumption-Market/blob/main/com_number-consumption_pic.png) 
+
+The most interesting is that for the industrial market, we can observe the dramatic drop of total consumption despite of the rapid growth of consumer's number 
+![](https://github.com/Nursultan77/US-NG-Consumption-Market/blob/main/com_number-consumption_pic.png) 
 
 ### Script 3: 3_prices_diff_by_state.py
 

@@ -64,6 +64,6 @@ The final script will be used top use the Data for mapping the average end price
 
 For plotting our analysis, we need to download shapefile from open source https://www.igismap.com/united-states-shapefile-download-free-map-boundary-states-and-county/. Save this file to the same folder of the final project and merge 2019 end prices data with "shp" file. For coinciding the different styles of states to use them as a merge key, I use states abbrevation from this link https://gist.github.com/rogerallen/1583593. And add "US-" signs to all rows. as Igis folder we download has these.
 
-## Maping price differences
+## Mapping price differences
 
 In QGIS, I load the created by script#5 'states.gpkg' file. We need to create a copy of the layer to make stiped layer for mapping missing values of states. Set 'iso' label for states to mark them with obrevations. Drag the "FDiagonal" styled layer to the bottom and set black color. Then set "Graduated" style to initial prices layer with "Red" color ramp with 6 classes where more intensed color is for the higher average end price. That will show us the difference of end prices between states. Then add "Stacked bars with residential, commercial and industrial sectors respectively to see the gap between the category prices within a state. 

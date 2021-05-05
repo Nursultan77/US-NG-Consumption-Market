@@ -63,7 +63,7 @@ for col in ind_xls.columns:
 # Get the total consumption by type: Iterate through consumption by state files
 # to concatenate the consumption quantity by type of consumers
 path = os.getcwd()
-consumption = os.listdir("/Users/nursultanyeshmukhan/Desktop/PAI789/US-NG-Consumption-Market/consumption/")
+consumption = os.listdir("/Users/nursultanyeshmukhan/Desktop/PAI789/ny_final_project/")
 
 con_xls = [f for f in consumption if f[-7:] == 'con.xls']
 

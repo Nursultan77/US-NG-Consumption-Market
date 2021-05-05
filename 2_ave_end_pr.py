@@ -122,65 +122,49 @@ ind_merge1 = ind_merge.merge(indus_df, on = "Date", how = "left")
 
 #residential number-consumption relationship
 fig,ax = plt.subplots()
-ax.plot(res_merge1['consumption, MMcf'], color="red", marker="o")
-ax.set_xlabel("year",fontsize=14)
-ax.set_ylabel("consumption, MMcf",color="red",fontsize=14)
+ax.plot(res_merge1['consumption, MMcf']/1000, color="orangered")
+ax.set_xlabel("year",fontsize=12)
+ax.set_ylabel("consumption, Bcf",color="orangered",fontsize=12)
 
 ax2=ax.twinx()
-ax2.plot(res_merge1['number'],color="blue",marker="o")
-ax2.set_ylabel("number of consumers",color="blue",fontsize=14)
-ax.set_title("Consumption and number of consumers in the United States (Residential)", fontsize = 8)
+ax2.plot(res_merge1['number']/1e6,color="deepskyblue")
+ax2.set_ylabel("number of consumers, millions",color="deepskyblue",fontsize=12)
+ax.set_title("Consumption and number of consumers in the United States (Residential)", fontsize = 7)
 fig.tight_layout()
 plt.show()
 fig.savefig('res_number-consumption_pic.png',
-            dpi=250, bbox_inches='tight')
+            dpi=500, bbox_inches='tight')
 #%%
 #commercial number-consumption relationship
 fig,ax = plt.subplots()
-ax.plot(com_merge1['consumption, MMcf'], color="red", marker="o")
-ax.set_xlabel("year",fontsize=14)
-ax.set_ylabel("consumption, MMcf",color="red",fontsize=14)
+ax.plot(com_merge1['consumption, MMcf']/1000, color="orangered")
+ax.set_xlabel("year",fontsize=12)
+ax.set_ylabel("consumption, Bcf",color="orangered",fontsize=12)
 
 ax2=ax.twinx()
-ax2.plot(com_merge1['number'],color="blue",marker="o")
-ax2.set_ylabel("number of consumers",color="blue",fontsize=14)
-ax.set_title("Consumption and number of consumers in the United States (Commercial)", fontsize = 8)
+ax2.plot(com_merge1['number']/1e6,color="deepskyblue")
+ax2.set_ylabel("number of consumers, millions",color="deepskyblue",fontsize=12)
+ax.set_title("Consumption and number of consumers in the United States (Commercial)", fontsize = 7)
 fig.tight_layout()
 plt.show()
 fig.savefig('com_number-consumption_pic.png',
-            dpi=250, bbox_inches='tight')
+            dpi=500, bbox_inches='tight')
 
 #%%
 #industrial number-consumption relationship
 fig,ax = plt.subplots()
-ax.plot(ind_merge1['consumption, MMcf'], color="red", marker="o")
-ax.set_xlabel("year",fontsize=14)
-ax.set_ylabel("consumption, MMcf",color="red",fontsize=14)
+ax.plot(ind_merge1['consumption, MMcf']/1000, color="orangered")
+ax.set_xlabel("year",fontsize=12)
+ax.set_ylabel("consumption, Bcf",color="orangered",fontsize=12)
 
 ax2=ax.twinx()
-ax2.plot(com_merge1['number'],color="blue",marker="o")
-ax2.set_ylabel("number of consumers",color="blue",fontsize=14)
-ax.set_title("Consumption and number of consumers in the United States (Industrial)", fontsize = 8)
+ax2.plot(ind_merge1['number']/1000,color="deepskyblue")
+ax2.set_ylabel("number of consumers, thousands",color="deepskyblue",fontsize=12)
+ax.set_title("Consumption and number of consumers in the United States (Industrial)", fontsize = 7)
 fig.tight_layout()
 plt.show()
 fig.savefig('ind_number-consumption_pic.png',
-            dpi=250, bbox_inches='tight')
-#%%
-fig,ax = plt.subplots()
-ax.plot(ind_merge1['consumption, MMcf'], color="red", marker="o")
-ax.set_xlabel("year",fontsize=14)
-ax.set_ylabel("consumption, MMcf",color="red",fontsize=14)
-
-ax2=ax.twinx()
-ax2.plot(ind_merge1['number'],color="blue",marker="o")
-ax2.set_ylabel("number of consumers",color="blue",fontsize=14)
-ax.set_title("Consumption and number of consumers in the United States (Industrial)", fontsize = 8)
-fig.tight_layout()
-plt.show()
-fig.savefig('ind_number-consumption_pic.png',
-            dpi=250, bbox_inches='tight')
-
-
+            dpi=500, bbox_inches='tight')
 
 
 #%%
@@ -188,49 +172,49 @@ fig.savefig('ind_number-consumption_pic.png',
 # create figure and axis objects with subplots()
 fig,ax = plt.subplots()
 # make a plot
-ax.plot(res_merge1['per capita, MMcf'], color="red", marker="o")
+ax.plot(res_merge1['per capita, MMcf'], color="orangered", marker="o")
 # set x-axis label
-ax.set_xlabel("year",fontsize=14)
+ax.set_xlabel("year",fontsize=12)
 # set y-axis label
-ax.set_ylabel("consumption per capita, MMcf",color="red",fontsize=14)
+ax.set_ylabel("consumption per capita, MMcf",color="orangered",fontsize=12)
 
 #Next we use twinx() function to create the second axis object “ax2”. 
 # twin object for two different y-axis on the sample plot
 ax2=ax.twinx()
 # make a plot with different y-axis using second axis object
-ax2.plot(res_merge1['average price, $ per Mcf'],color="blue",marker="o")
-ax2.set_ylabel("average price, $ per Mcf",color="blue",fontsize=14)
-ax.set_title("Price-consumption dynamics in the United States (Residential)")
+ax2.plot(res_merge1['average price, $ per Mcf'],color="deepskyblue",marker="o")
+ax2.set_ylabel("average price, $ per Mcf",color="deepskyblue",fontsize=12)
+ax.set_title("Price-consumption dynamics in the United States (Residential)", fontsize = 8)
 plt.show()
 fig.savefig('res_price-consumption_pic.png',
-            dpi=250, bbox_inches='tight')
+            dpi=500, bbox_inches='tight')
 #%%
 #Do same procedure for commercial and industrial consumers
 fig,ax = plt.subplots()
-ax.plot(com_merge1['per capita, MMcf'], color="red", marker="o")
-ax.set_xlabel("year",fontsize=14)
-ax.set_ylabel("consumption per capita, MMcf",color="red",fontsize=14)
+ax.plot(com_merge1['per capita, MMcf'], color="orangered", marker="o")
+ax.set_xlabel("year",fontsize=12)
+ax.set_ylabel("consumption per capita, MMcf",color="orangered",fontsize=12)
 
 ax2=ax.twinx()
-ax2.plot(com_merge1['average price, $ per Mcf'],color="blue",marker="o")
-ax2.set_ylabel("average price, $ per Mcf",color="blue",fontsize=14)
-ax.set_title("Price-consumption dynamics in the United States (Commercial)")
+ax2.plot(com_merge1['average price, $ per Mcf'],color="deepskyblue",marker="o")
+ax2.set_ylabel("average price, $ per Mcf",color="deepskyblue",fontsize=12)
+ax.set_title("Price-consumption dynamics in the United States (Commercial)", fontsize = 8)
 plt.show()
 fig.savefig('com_price-consumption_pic.png',
-            dpi=250, bbox_inches='tight')
+            dpi=500, bbox_inches='tight')
 #%%
 fig,ax = plt.subplots()
-ax.plot(ind_merge1['per capita, MMcf'], color="red", marker="o")
-ax.set_xlabel("year",fontsize=14)
-ax.set_ylabel("consumption per capita, MMcf",color="red",fontsize=14)
+ax.plot(ind_merge1['per capita, MMcf'], color="orangered", marker="o")
+ax.set_xlabel("year",fontsize=12)
+ax.set_ylabel("consumption per capita, MMcf",color="orangered",fontsize=12)
 
 ax2=ax.twinx()
-ax2.plot(ind_merge1['average price, $ per Mcf'],color="blue",marker="o")
-ax2.set_ylabel("average price, $ per Mcf",color="blue",fontsize=14)
-ax.set_title("Price-consumption dynamics in the United States (Industrial)")
+ax2.plot(ind_merge1['average price, $ per Mcf'],color="deepskyblue",marker="o")
+ax2.set_ylabel("average price, $ per Mcf",color="deepskyblue",fontsize=12)
+ax.set_title("Price-consumption dynamics in the United States (Industrial)",  fontsize = 8)
 plt.show()
 fig.savefig('ind_price-consumption_pic.png',
-            dpi=250, bbox_inches='tight')
+            dpi=500, bbox_inches='tight')
 
 
 

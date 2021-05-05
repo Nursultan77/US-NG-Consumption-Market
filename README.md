@@ -34,7 +34,8 @@ Since the natural gas consumers are basically divided by three categories, each 
 - iterates through each consumers files to get three Dataframes with number of consumers of each consumption category and three Dataframes with consumption data parsing the data from each of file of the state;
 - since the consumption dataframes contains has a prosperity of data by each state which we will need later, create new dataframe summarizing the consumption to analyze the consumption dynamics.
 
-From the first graph NG_consumption.png, we can see the fluctuations of the consumption for each category, but the most dramatic swing is for the industrial sector, which makes me presume that this category one is the most sensitive. 
+From the first graph NG_consumption.png, we can see the fluctuations of the consumption for each category, but the most dramatic swing is for the industrial sector, which makes me presume that this category one is the most sensitive.
+![NG_consumption.png](https://github.com/Nursultan77/US-NG-Consumption-Market/blob/main/NG_consumption.png) 
 
 To see the reasons, I want to check whether the number of consumers changed significantly or no. This is hard to see from the cone graph since the consumers quantity differs significantly between the categories which makes sense since the residential consumers are essentially households, while the relatively small number of industrial consumers such as factories each consumes much more NG. That is why, following three graphs shows the the correlation separetely.
 

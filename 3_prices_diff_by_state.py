@@ -28,7 +28,7 @@ for f in pri_xls:
 #%%
 #take only 2010 year, add category column for each dataframe respectively
 
-cityg_pr_ndf = cityg_pr_df.query("Date == '2010-06-30 00:00:00'").copy()
+cityg_pr_ndf = cityg_pr_df.query("Date == '2019-06-30 00:00:00'").copy()
 
 cityg_pr_ndf.columns = cityg_pr_ndf.columns.map(lambda x: str(x)[:-11])
 
@@ -37,7 +37,7 @@ cols = cityg_pr_ndf.columns.tolist()
 cols = cols[-1:] + cols[:-1]
 cityg_pr_ndf = cityg_pr_ndf[cols]
 
-final_pr_ndf =final_pr_df.query("Date == '2010-06-30 00:00:00'").copy()
+final_pr_ndf =final_pr_df.query("Date == '2019-06-30 00:00:00'").copy()
 
 final_pr_ndf["category"] = "final"
 cols = final_pr_ndf.columns.tolist()
@@ -77,7 +77,7 @@ pr_df_kde = pr_df.drop("difference", axis = "columns")
 fig, ax1 = plt.subplots()
 #sns.histplot(pr_df, stat = "density", ax = ax1)
 sns.kdeplot(data = pr_df_kde, shade = True, ax = ax1)
-ax1.set_title("US Natural Gas citygate & Final price density, 2010")
+ax1.set_title("US Natural Gas citygate & Final price density, 2019")
 ax1.set_xlabel("natural gas prices. $ per Mcf")
 # how to set title
 fig.tight_layout()
@@ -93,7 +93,7 @@ print("Average final price in 2010:", pr_df["final"].mean())
 pr_df = pr_df.sort_values("difference", ascending=False)
 fig, ax = plt.subplots(figsize=(10, 15))
 sns.set_color_codes("pastel")
-sns.barplot(x="final", y=pr_df.index, data=pr_df, label="Final price", color="b").set_title("Citygate and Final prices difference in the United States, 2010")
+sns.barplot(x="final", y=pr_df.index, data=pr_df, label="Final price", color="b").set_title("Citygate and Final prices difference in the United States, 2019")
 sns.set_color_codes("muted")
 sns.barplot(x="citygate", y=pr_df.index, data=pr_df,label="Citygate price", color="b")
 

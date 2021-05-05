@@ -21,7 +21,7 @@ The source of data are excel sheets from the The U.S. Energy Information Adminis
 Getting and preparing the Data
 
 The first file we need is The US Total Natural Gas number of consumers by type which is the excell file can be downloaded from this link https://www.eia.gov/dnav/ng/ng_cons_num_dcu_nus_a.htm. Choose Area "U.S." and click "Download Series History". Since it has long unclear name and we will need to download a bunch of other files, i renamed it as "consumers_total_bytype.xls".
-Next, we need to download the consumption data for each state from this link: https://www.eia.gov/dnav/ng/ng_cons_sum_dcu_nus_a.htm. Choose "Annual" period and download each file in turn for every state. Rename them by *_con.xls, where * is a statename. Do same procedure for prices from this link https://www.eia.gov/dnav/ng/ng_pri_sum_dcu_SAL_a.htm and name each file as *_prices.xls. It is required to store all files in same repository to make scripts run properly.
+Next, we need to download the consumption data for each state from this link: https://www.eia.gov/dnav/ng/ng_cons_sum_dcu_nus_a.htm. Choose "Annual" period and download each file in turn for every state. Rename them by *_con.xls, where * is a state name with lower cases divided by underscore. Do same procedure for prices from this link https://www.eia.gov/dnav/ng/ng_pri_sum_dcu_SAL_a.htm and name each file as *_prices.xls. It is required to store all files in same repository to make scripts run properly.
 
 ## Scripts
 

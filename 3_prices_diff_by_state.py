@@ -28,7 +28,7 @@ for f in pri_xls:
 #%%
 #take only 2010 year, add category column for each dataframe respectively
 
-cityg_pr_ndf = cityg_pr_df.query("Date == '2019-06-30 00:00:00'").copy()
+cityg_pr_ndf = cityg_pr_df.query("Date == '2010-06-30 00:00:00'").copy()
 
 cityg_pr_ndf.columns = cityg_pr_ndf.columns.map(lambda x: str(x)[:-11])
 
@@ -37,7 +37,7 @@ cols = cityg_pr_ndf.columns.tolist()
 cols = cols[-1:] + cols[:-1]
 cityg_pr_ndf = cityg_pr_ndf[cols]
 
-final_pr_ndf =final_pr_df.query("Date == '2019-06-30 00:00:00'").copy()
+final_pr_ndf =final_pr_df.query("Date == '2010-06-30 00:00:00'").copy()
 
 final_pr_ndf["category"] = "final"
 cols = final_pr_ndf.columns.tolist()
@@ -50,7 +50,6 @@ final_pr_ndf = final_pr_ndf[cols]
 # Combine data to united Dataframe that contains density of prices 
 frames = [cityg_pr_ndf, final_pr_ndf]
 pr_df = pd.concat(frames)
-#pr_df.reset_index(drop=True, inplace=True)
 pr_df = pr_df.dropna(axis = "columns", how = "any")
 
 #%%
@@ -77,7 +76,7 @@ pr_df_kde = pr_df.drop("difference", axis = "columns")
 fig, ax1 = plt.subplots()
 #sns.histplot(pr_df, stat = "density", ax = ax1)
 sns.kdeplot(data = pr_df_kde, shade = True, ax = ax1)
-ax1.set_title("US Natural Gas citygate & Final price density, 2019")
+ax1.set_title("US Natural Gas citygate & Final price density, 2010")
 ax1.set_xlabel("natural gas prices. $ per Mcf")
 # how to set title
 fig.tight_layout()

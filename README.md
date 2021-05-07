@@ -66,6 +66,8 @@ We also can see proportional growth with some fluctuations for commercial consum
 The most interesting is that for the industrial market, we can observe the dramatic drop of total consumption associated with decrease of consumers number since late 1990's till late 2000's and controversial increase of consumption after despite the decrease in total consumers number.
 ![](https://github.com/Nursultan77/US-NG-Consumption-Market/blob/main/ind_number-consumption_pic.png) 
 
+Further, I illustrate the change of the prices and the consumption, which are represented in the attached presentation.
+ 
 ### Script 3: 3_prices_diff_by_state.py
 
 Before we will get rid of the years and states fixed effects to check the more precise correlation between the consumption and prices, since we have weighted average end prices, we can examine the difference distribution between natural gas citygate and final prices. For this analysis I chose the year 2010 since this is the last year that contains data of prices for the vast majority of states. Later, we will visualize them on the GIS map. 

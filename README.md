@@ -43,6 +43,7 @@ The data for the natural gas consumers were processed separately since they repr
 -	create new dataframe summarizing the consumption to analyze the consumption dynamics.
 
 Results show fluctuations of the consumption for each category, but the most dramatic swing is for the industrial sector, which suggests that this category one class is the most sensitive. 
+
 ![NG_consumption.png](https://github.com/Nursultan77/US-NG-Consumption-Market/blob/main/NG_consumption.png) 
 
 To see the reasons, To check it further, I checked I want to check whether the number of consumers changed significantly or not. This is hard to see from the cone graph since the consumers quantity differs significantly between the categories which makes since the residential consumers are essentially households, while the relatively small number of industrial consumers such as factories each consumes much more NG. That is why, following three graphs (res_consum-number.png, com_consum-number.png, ind_consum-number.png) show the the correlation separately.
@@ -63,23 +64,27 @@ We also can see proportional growth with some fluctuations for commercial consum
 ![](https://github.com/Nursultan77/US-NG-Consumption-Market/blob/main/com_number-consumption_pic.png) 
 
 The most interesting is that for the industrial market, we can observe the dramatic drop of total consumption associated with decrease of consumers number since late 1990's till late 2000's and controversial increase of consumption after despite the decrease in total consumers number.
-![](https://github.com/Nursultan77/US-NG-Consumption-Market/blob/main/com_number-consumption_pic.png) 
+![](https://github.com/Nursultan77/US-NG-Consumption-Market/blob/main/ind_number-consumption_pic.png) 
 
+Further, I illustrate the change of the prices and the consumption, which are represented in the attached presentation.
+ 
 ### Script 3: 3_prices_diff_by_state.py
 
 Before we will get rid of the years and states fixed effects to check the more precise correlation between the consumption and prices, since we have weighted average end prices, we can examine the difference distribution between natural gas citygate and final prices. For this analysis I chose the year 2010 since this is the last year that contains data of prices for the vast majority of states. Later, we will visualize them on the GIS map. 
 
 As we can see from the first graph, since the distribution of the citygate prices is quite narrow, the final prices are distributed more wider. the final prices are more widely dispersed than the citygate prices. Average citygate price in 2010 was $ 6.64 per Mcf, while average final price was $ 9.82 per Mcf.
+
 ![](https://github.com/Nursultan77/US-NG-Consumption-Market/blob/main/price_density.png) 
 
-From the second picture  figure, we can see observe that Delaware, Florida, Arizona, Georgia, New York, Washington, Missouri and Mariland Maryland has have the biggest difference between citygate and final prices and the price of natural gas in Hawaii differs from the rest of the country dramatically. Major Oil and Gas procution producing states such as Texas and Louisiana final prices are even lower than their citygate .
+From the second picture  figure, we can see observe that Delaware, Florida, Arizona, Georgia, New York, Washington, Missouri and Mariland Maryland has have the biggest difference between citygate and final prices and the price of natural gas in Hawaii differs from the rest of the country dramatically. Major Oil and Gas procution producing states such as Texas and Louisiana final prices are even lower than their citygate.
+
 ![](https://github.com/Nursultan77/US-NG-Consumption-Market/blob/main/citygate_final_barplot.png) 
 
 ### Script 4: 4_fixed_eff and Stata regression
 
 This script consolidates all previous data to final three dataframes of panel data according to consumer type to check the elasticities of the price. Then, save these dataframes to .csv files to import them in Stata.
 
-Note: My Mac with Big Sur operational system seem like has some issues of supporting does not seem to support some modules such as linearmodels, so I ran run this these regressions in Stata. To do that, we need to open Stata. Click Import from toolbar and choose Text data, choose sequentially each saved csv file and run the regrression  regression (check whether necessary variables have numeric values). As we can see, the consumptiona and prices are also highly correlated with national GDP, so I also control for GDP (Bureau of Economic Analysis data - https://www.bea.gov/data/gdp). The results of the regressions are saved in res-com-ind_reg.docx file.
+Note: My Mac with Big Sur operational system seem like has some issues of supporting does not seem to support some modules such as linearmodels, so I ran run this these regressions in Stata. To do that, we need to open Stata. Click Import from toolbar and choose Text data, choose sequentially each saved csv file and run the regrression  regression (check whether necessary variables have numeric values). As we can see, the consumptioa and prices are also highly correlated with national GDP, so I also control for GDP (Bureau of Economic Analysis data - https://www.bea.gov/data/gdp). The results of the regressions are saved in res-com-ind_reg.docx file.
 
 ### Script 5: 5_prices_geo and Mapping price differences
 
@@ -88,6 +93,7 @@ The final script is used in processing the data will be used top use the Data fo
 For plotting our analysis, we need to download shapefile from open source https://www.igismap.com/united-states-shapefile-download-free-map-boundary-states-and-county/. Save this file to the same folder of the final project and merge 2019 end prices data with the "shp" file. For concatenating the different styles of states to use them as a merge key, I used their states abbrevation abbreviation from this link https://gist.github.com/rogerallen/1583593 as merge key. And and added "US-" signs to all rows to match keys. as Igis folder we download has them.
 
 In QGIS, I load the created by script#5 the 'states.gpkg' file created in script # 5. We need to create a copy of the layer to make stiped layer for mapping missing values of states. Set 'iso' label for states to mark them with obrevations observations. Drag the "FDiagonal" styled layer to the bottom and set black color. Then set "Graduated" style to initial prices layer with "Red" color ramp with 6 classes where more intensed color is for the higher quintiles of average end prices. That will show us the difference of end prices between states. Then add "Stacked bars with residential, commercial and industrial sectors respectively to see the gap between the category prices within a state.  
+
 ![](https://github.com/Nursultan77/US-NG-Consumption-Market/blob/main/prices_map.png)
 
 ### Conclusions:

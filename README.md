@@ -63,7 +63,7 @@ We also can see proportional growth with some fluctuations for commercial consum
 ![](https://github.com/Nursultan77/US-NG-Consumption-Market/blob/main/com_number-consumption_pic.png) 
 
 The most interesting is that for the industrial market, we can observe the dramatic drop of total consumption associated with decrease of consumers number since late 1990's till late 2000's and controversial increase of consumption after despite the decrease in total consumers number.
-![](https://github.com/Nursultan77/US-NG-Consumption-Market/blob/main/com_number-consumption_pic.png) 
+![](https://github.com/Nursultan77/US-NG-Consumption-Market/blob/main/ind_number-consumption_pic.png) 
 
 ### Script 3: 3_prices_diff_by_state.py
 

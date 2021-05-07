@@ -79,7 +79,7 @@ From the second picture  figure, we can see observe that Delaware, Florida, Ariz
 
 This script consolidates all previous data to final three dataframes of panel data according to consumer type to check the elasticities of the price. Then, save these dataframes to .csv files to import them in Stata.
 
-Note: My Mac with Big Sur operational system seem like has some issues of supporting does not seem to support some modules such as linearmodels, so I ran run this these regressions in Stata. To do that, we need to open Stata. Click Import from toolbar and choose Text data, choose sequentially each saved csv file and run the regrression  regression (check whether necessary variables have numeric values). As we can see, the consumptiona and prices are also highly correlated with national GDP, so I also control for GDP (Bureau of Economic Analysis data - https://www.bea.gov/data/gdp). The results of the regressions are saved in res-com-ind_reg.docx file.
+Note: My Mac with Big Sur operational system seem like has some issues of supporting does not seem to support some modules such as linearmodels, so I ran run this these regressions in Stata. To do that, we need to open Stata. Click Import from toolbar and choose Text data, choose sequentially each saved csv file and run the regrression  regression (check whether necessary variables have numeric values). As we can see, the consumptioa and prices are also highly correlated with national GDP, so I also control for GDP (Bureau of Economic Analysis data - https://www.bea.gov/data/gdp). The results of the regressions are saved in res-com-ind_reg.docx file.
 
 ### Script 5: 5_prices_geo and Mapping price differences
 

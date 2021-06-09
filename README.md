@@ -97,7 +97,7 @@ In QGIS, I load the created by script#5 the 'states.gpkg' file created in script
 ![](https://github.com/Nursultan77/US-NG-Consumption-Market/blob/main/prices_map.png)
 
 ### Conclusions:
-- The quantity of residential consumers was risen even despite that its category's price is higher, si its equilibrium price is higher than the for the rest of market.
+- The quantity of residential consumers was risen even despite that its category's price is higher, so its equilibrium price is higher than the for the rest of market.
 - For commercial market, although there is a positive correlation between the number of consumers, and total consumption, this market is pretty sensitive to price change. there is a same correalation for industrial market, although this market requires "long" investitions, I assume, for this reason this part of the market was unable to manage the plant comissioning plans when the prices were risen in 2004-2008 years, after 2008, when prices get gown, the market could slightly recover that illustrates the increase in consumption. As we can see, when price dropped down after year 2008, even the number of industries declined, there was a persistent rise of consumption.
 - For the most of the states, the residential prices are higher than for the rest share of the market.
 - Top 5 States with the smallest gap between citygate end end prices gap are Louisiana, Texas, North Dakota, Wyoming, South Dakota. The general trend shows that states with lowest end prices have smallest gap between citygate and final prices. Top 5 States with biggest gap are Delaware, Florida, Arizona, Georgia, New York.

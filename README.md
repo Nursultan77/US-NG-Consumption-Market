@@ -13,19 +13,19 @@ The repository is created as a final project for the SU Maxwell schools's PAI 78
 
 ## Limitations
 
-Due to the limited open data, power plants prices and consumption were not included. Hence, the analysis focused only to three categories of consumers, namely, Residential, Commercial and Industrial. The main objective of this project is to understang the general economic market features utilizing some of the skills obtained in the course.
+Due to the limited open data, power plants prices and consumption were not included. Hence, the analysis focused only to three categories of consumers, namely, Residential, Commercial and Industrial. The main objective of this project is to understand the general economic market features utilizing some of the skills obtained in the course.
 
 ## Data Source
 
 Data were sourced from reports downloaded from the U.S. Energy Information Administration’s (EIA) website https://www.eia.gov/energyexplained/natural-gas/.
-For some reasons, wellhead prices and some consumption types in some states may not have been made available. For this reason, in some cases, States with incomplete or insufficient records were dropped manually or by Pandas and were not included in the analysis.
+For some reasons, wellhead prices and some consumption types in some states may not have been made available. Therefore, in some cases, States with incomplete or insufficient records were dropped manually or by Pandas and were not included in the analysis.
 
 List of Data Used
 
 1. The US Total Natural Gas number of consumers by type downloaded from this link https://www.eia.gov/dnav/ng/ng_cons_num_dcu_nus_a.htm. 
   a. Choose Area "U.S." and click "Download Series History". 
   b. Since it has long unclear name and we will need to download a bunch of other files, i renamed it Rename the file as "consumers_total_bytype.xls". 
-2. Next, we need to download the cConsumption data for each state from this link: https://www.eia.gov/dnav/ng/ng_cons_sum_dcu_nus_a.htm. 
+2. Next, we need to download the Consumption data for each state from this link: https://www.eia.gov/dnav/ng/ng_cons_sum_dcu_nus_a.htm. 
   a. Choose "Annual" period and download each file in turn for every state. 
   b. Rename each report by using this naming convention:  state_con.xls, where * is a state name with lower cases divided by underscore. 
 3. Do the same procedure in number (2) for prices data from this link https://www.eia.gov/dnav/ng/ng_pri_sum_dcu_SAL_a.htm and name each file as state _prices.xls. It is required to store Save all files in same repository to make scripts run properly.
@@ -46,11 +46,11 @@ Results show fluctuations of the consumption for each category, but the most dra
 
 ![NG_consumption.png](https://github.com/Nursultan77/US-NG-Consumption-Market/blob/main/NG_consumption.png) 
 
-To see the reasons, To check it further, I checked I want to check whether the number of consumers changed significantly or not. This is hard to see from the cone graph since the consumers quantity differs significantly between the categories which makes since the residential consumers are essentially households, while the relatively small number of industrial consumers such as factories each consumes much more NG. That is why, following three graphs (res_consum-number.png, com_consum-number.png, ind_consum-number.png) show the the correlation separately.
+To see the reasons, I want to check whether the number of consumers changed significantly or not. This is hard to see from the cone graph since the consumers quantity differs significantly between the categories as the residential consumers are essentially households, while the relatively small number of industrial consumers such as factories each consumes much more NG. That is why, following three graphs (res_consum-number.png, com_consum-number.png, ind_consum-number.png) show correlation separately.
 
 ### Script 2: 2_ave_end_pr.py
 
-This script is designed to visualize the end consumers price elasticity, and prepareds the dataframe of the average weighted end price for the script #3 where we will compare the difference between the citygate and final consumers prices differences in every state of the country. Since the prices from the source website contains the prices in real $ dollars ($), we don't need to correct adjust them by for inflation rate. To get the weighted price, we need to have the consumption data, which could be read from the previous script. Next, iterate through the .xls files to get the necessary columns that contain price for each category of consumers. For the next lines after erasing removing unnecessary symbols from state columns, pandas can multiply, summarize and divide each cell of the dataframes according to the headings and the indexes. final_pr_df is the final dataframe that contain average weihted weighted prices for each state and year. Doing similare procedure,  we get the av_pr and av_pr_long dataframes that contain average country's end prices.
+This script is designed to visualize the end consumers price elasticity, and prepares the Dataframe of the average weighted end price for the script #3 where we will compare the difference between the citygate and final consumers prices differences in every state of the country. Since the prices from the source website contains the prices in real $ dollars ($), we don't need to correct adjust them by for inflation rate. To get the weighted price, we need to have the consumption data, which could be read from the previous script. Next, iterate through the .xls files to get the necessary columns that contain price for each category of consumers. For the next lines after erasing removing unnecessary symbols from state columns, pandas can multiply, summarize and divide each cell of the dataframes according to the headings and the indexes. final_pr_df is the final dataframe that contain average weihted weighted prices for each state and year. Doing similare procedure,  we get the av_pr and av_pr_long dataframes that contain average country's end prices.
 
 Firstly, we can see, that the prices general tendencies over the years for all categories were the same with peak in late 2000's and further decline. 
 ![](https://github.com/Nursultan77/US-NG-Consumption-Market/blob/main/ave_prices_bysector.png) 
@@ -76,7 +76,7 @@ As we can see from the first graph, since the distribution of the citygate price
 
 ![](https://github.com/Nursultan77/US-NG-Consumption-Market/blob/main/price_density.png) 
 
-From the second picture  figure, we can see observe that Delaware, Florida, Arizona, Georgia, New York, Washington, Missouri and Mariland Maryland has have the biggest difference between citygate and final prices and the price of natural gas in Hawaii differs from the rest of the country dramatically. Major Oil and Gas procution producing states such as Texas and Louisiana final prices are even lower than their citygate.
+From the second figure, we can see observe that Delaware, Florida, Arizona, Georgia, New York, Washington, Missouri and Mariland Maryland has have the biggest difference between citygate and final prices and the price of natural gas in Hawaii differs from the rest of the country dramatically. Major Oil and Gas producing states such as Texas and Louisiana final prices are even lower than their citygate price.
 
 ![](https://github.com/Nursultan77/US-NG-Consumption-Market/blob/main/citygate_final_barplot.png) 
 
@@ -84,7 +84,7 @@ From the second picture  figure, we can see observe that Delaware, Florida, Ariz
 
 This script consolidates all previous data to final three dataframes of panel data according to consumer type to check the elasticities of the price. Then, save these dataframes to .csv files to import them in Stata.
 
-Note: My Mac with Big Sur operational system seem like has some issues of supporting does not seem to support some modules such as linearmodels, so I ran run this these regressions in Stata. To do that, we need to open Stata. Click Import from toolbar and choose Text data, choose sequentially each saved csv file and run the regrression  regression (check whether necessary variables have numeric values). As we can see, the consumptioa and prices are also highly correlated with national GDP, so I also control for GDP (Bureau of Economic Analysis data - https://www.bea.gov/data/gdp). The results of the regressions are saved in res-com-ind_reg.docx file.
+Note: My Mac with Big Sur operational system seem like has some issues of supporting does not seem to support some modules such as 'linearmodels', so I ran this these regressions in Stata. To do that, we need to open Stata. Click Import from toolbar and choose Text data, choose sequentially each saved csv file and run the regression (check whether necessary variables have numeric values). As we can see, the consumption and prices are also highly correlated with national GDP, so I also control for GDP (Bureau of Economic Analysis data - https://www.bea.gov/data/gdp). The results of the regressions are saved in res-com-ind_reg.docx file.
 
 ### Script 5: 5_prices_geo and Mapping price differences
 
@@ -98,7 +98,7 @@ In QGIS, I load the created by script#5 the 'states.gpkg' file created in script
 
 ### Conclusions:
 - The quantity of residential consumers was risen even despite that its category's price is higher, so its equilibrium price is higher than the for the rest of market.
-- For commercial market, although there is a positive correlation between the number of consumers, and total consumption, this market is pretty sensitive to price change. there is a same correalation for industrial market, although this market requires "long" investitions, I assume, for this reason this part of the market was unable to manage the plant comissioning plans when the prices were risen in 2004-2008 years, after 2008, when prices get gown, the market could slightly recover that illustrates the increase in consumption. As we can see, when price dropped down after year 2008, even the number of industries declined, there was a persistent rise of consumption.
+- For commercial market, although there is a positive correlation between the number of consumers, and total consumption, this market is pretty sensitive to price change. there is a same correalation for industrial market, although this market requires "long" investments, I assume, for this reason this part of the market was unable to manage the plant comissioning plans when the prices were risen in 2004-2008 years, after 2008, when prices get gown, the market could slightly recover that illustrates the increase in consumption. As we can see, when price dropped down after year 2008, even the number of industries declined, there was a persistent rise of consumption.
 - For the most of the states, the residential prices are higher than for the rest share of the market.
 - Top 5 States with the smallest gap between citygate end end prices gap are Louisiana, Texas, North Dakota, Wyoming, South Dakota. The general trend shows that states with lowest end prices have smallest gap between citygate and final prices. Top 5 States with biggest gap are Delaware, Florida, Arizona, Georgia, New York.
 

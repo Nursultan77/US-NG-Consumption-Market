@@ -1,5 +1,5 @@
 # US-NG-Consumption-Market
-Leveraging U.S. EIA open data, I investigate the United States Natural Gas (NG) consumption and prices dynamics and their correlation as well as compared NG prices between states.
+Leveraging U.S. EIA open data, I investigated the United States Natural Gas (NG) consumption and prices dynamics and their correlation as well as compared NG prices between states.
 
 ## Project objectives
 
